@@ -1,0 +1,14 @@
+Nest JS에는 여러 미들웨어가 있다. 
+
+Pipes, Filters, Guards, Interceptors
+
+Pipes : 유효성 체크와 데이터 타입 등 변환 (controller 전에)
+Filters : 오류처리 미들웨어
+Guards : 인증 미들웨어
+Interceptors : 캐싱 및 로깅
+
+Middleware=>Guard(인증)=>Interceptors(before)=>Pipe=>Controller=>Service=>Controller
+=>Interceptors(after)=>Filters(오류처리)=>Client
+
+*인증이 제일먼저, 파이프는 컨트롤러 전, 필터는 client로 전달되기 직전
+
