@@ -4,6 +4,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { User } from './auth/user.entity';
+import { BoardsModule } from './boards/boards.module';
+import { Board } from './boards/board.entity';
 
 @Module({
   imports: [
@@ -15,10 +17,12 @@ import { User } from './auth/user.entity';
       password: '1234',
       database: 'postgres',
       synchronize: true,
-      entities: [User],
+      entities: [User, Board],
     }),
 
     AuthModule,
+
+    BoardsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
