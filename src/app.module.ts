@@ -6,17 +6,20 @@ import { AuthModule } from './auth/auth.module';
 import { User } from './auth/user.entity';
 import { BoardsModule } from './boards/boards.module';
 import { Board } from './boards/board.entity';
+import * as config from 'config';
+
+const dbConfig = config.get('db');
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: '1234',
-      database: 'postgres',
-      synchronize: true,
+      type: dbConfig.type,
+      host: dbConfig.host,
+      port: dbConfig.port,
+      username: dbConfig.username,
+      password: dbConfig.password,
+      database: dbConfig.database,
+      synchronize: dbConfig.synchronize,
       entities: [User, Board],
     }),
 
